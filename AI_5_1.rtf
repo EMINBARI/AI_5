@@ -29,8 +29,30 @@
 )\
 \
 \
-(print (get-coord state))\
 \
+(setf position (get-coord state))\
+(print position)\
+\
+(defun direction (pos) \
+    (let ((drc ()))\
+         (cond \
+             ((equal '(0 0) pos)(setf drc '(up left)))\
+             ((equal '(0 1) pos)(setf drc '(up right left)))\
+             ((equal '(0 2) pos)(setf drc '(up right)))\
+             ((equal '(1 0) pos)(setf drc '(up right down left)))\
+             ((equal '(1 1) pos)(setf drc '(up right down)))\
+             ((equal '(1 2) pos)(setf drc '(up down left)))\
+             ((equal '(2 0) pos)(setf drc '(down left)))\
+             ((equal '(2 1) pos)(setf drc '(right down left)))\
+             ((equal '(2 2) pos)(setf drc '(right down)))\
+         )\
+         (progn drc)\
+    )\
+    \
+)\
+\
+(setf direction (direction '(0 1)))\
+(print direction)\
 \
 \
 \
