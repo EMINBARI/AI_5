@@ -114,6 +114,56 @@
 (print "right state ")\
 (print new-s-2)\
 \
+(defun down(st pos)\
+    (let ((i ()) (j ()) (tmp ()) (s ()))\
+        (setf s (copy-tree st))\
+        (setf i (first pos))\
+        (setf j (second pos))\
+         \
+        ;get upping element - tmp\
+        (setf tmp (nth j (nth (- i 1) s)))\
+        (print tmp)\
+         \
+        ;swapping 0 and tmp\
+        (setf (nth j (nth i s)) tmp)\
+        (setf (nth j (nth (- i 1) s)) 0)\
+        \
+        (progn s);to return new state\
+    )\
+)\
+\
+(setf new-s-3(down state position))\
+\
+(print "basic state")\
+(print state)\
+(print "down state")\
+(print new-s-3)\
+\
+\
+(defun left (st pos)\
+    (let ((i ()) (j ()) (tmp ()) (s ()))\
+        (setf s (copy-tree st))\
+        (setf i (first pos))\
+        (setf j (second pos))\
+         \
+        ;get upping element - tmp\
+        (setf tmp (nth (+ j 1) (nth i s)))\
+        (print tmp)\
+         \
+        ;swapping 0 and tmp\
+        (setf (nth j (nth i s)) tmp)\
+        (setf (nth (+ j 1) (nth i s)) 0)\
+        \
+        (progn s);to return new state\
+    )\
+)\
+\
+(setf new-s-4(left state position))\
+\
+(print "basic state")\
+(print state)\
+(print "left state ")\
+(print new-s-4)\
 \
 \
 \
