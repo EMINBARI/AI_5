@@ -1,5 +1,3 @@
-;gnu clisp 2.49
-
 (setf state (list '(2 3 9) '(0 6 5) '(8 4 1)))
 (print state)
 
@@ -10,7 +8,7 @@
         (t (get-pos a (cdr l) (+ 1 pos)))
     )
 )
- 
+
 (defun get-coord (ls)
     (do 
         (

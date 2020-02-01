@@ -72,6 +72,10 @@
         ;swapping 0 and tmp\
         (setf (nth j (nth i s)) tmp)\
         (setf (nth j (nth (+ i 1) s)) 0)\
+	;also for swapping another way\
+\
+	;(replace (nth i1 state) (nth i2 state) :start1 j1 :end1 (+ j1 1) :start2 j2 :end2 (+ j2 1))\
+	;(replace (nth i2 state) '(0) :start1 j2 :end1 (+ j2 1) :start2 0)\
         \
         (progn s);to return new state\
     )\
@@ -83,6 +87,32 @@
 (print new-s-1)\
 (print "basic state")\
 (print state)\
+\
+\
+(defun right (st pos)\
+    (let ((i ()) (j ()) (tmp ()) (s ()))\
+        (setf s (copy-tree st))\
+        (setf i (first pos))\
+        (setf j (second pos))\
+         \
+        ;get upping element - tmp\
+        (setf tmp (nth (- j 1) (nth i s)))\
+        (print tmp)\
+         \
+        ;swapping 0 and tmp\
+        (setf (nth j (nth i s)) tmp)\
+        (setf (nth (- j 1) (nth i s)) 0)\
+        \
+        (progn s);to return new state\
+    )\
+)\
+\
+(setf new-s-2(right state position))\
+\
+(print "basic state")\
+(print state)\
+(print "right state ")\
+(print new-s-2)\
 \
 \
 \
