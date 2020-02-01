@@ -51,8 +51,39 @@
     \
 )\
 \
-(setf direction (direction '(0 1)))\
+\
+(setf direction (direction position))\
 (print direction)\
+\
+;tmp is swapping element\
+;i and j are indexes\
+\
+(defun up(st pos)\
+    (let ((i ()) (j ()) (tmp ()) (s ()))\
+         \
+        (setf s (copy-tree st))\
+        (setf i (first pos))\
+        (setf j (second pos))\
+         \
+        ;get upping element - tmp\
+        (setf tmp (nth j (nth (+ i 1) s)))\
+        (print tmp)\
+         \
+        ;swapping 0 and tmp\
+        (setf (nth j (nth i s)) tmp)\
+        (setf (nth j (nth (+ i 1) s)) 0)\
+        \
+        (progn s);to return new state\
+    )\
+)\
+\
+(setf new-s-1(up state position))\
+\
+(print "returned state")\
+(print new-s-1)\
+(print "basic state")\
+(print state)\
+\
 \
 \
 \
